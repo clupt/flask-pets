@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{%block title %} {% endblock %}</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  {% block content %}
+
+    {% for pet in pets %}
+      <div>
+        <p>{{ pet.name }}<br></p>
+        <p>{{ pet.photo_url }}<br></p>
+        {% if pet.available %}
+        <p><b>{{pet.available}}</b></p>
+        {% else %}
+        <p>{{pet.available}}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+  {% endblock %}
+
+</body>
+</html>
