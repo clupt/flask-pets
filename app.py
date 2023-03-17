@@ -23,11 +23,18 @@ connect_db(app)
 
 toolbar = DebugToolbarExtension(app)
 
+@app.get('/')
+def show_homepage():
+    """Shows the homepage"""
+
+    pets = Pet.query.all()
+
+    return render_template("base.html", pets=pets)
+
 
 @app.route('/add', methods=["GET", "POST"])
 def show_or_add_pet_add_form():
     """On GET, show pet add form. On POST, add pet data to db"""
-
 
     form = AddPetForm()
 
@@ -47,7 +54,9 @@ def show_or_add_pet_add_form():
         flash(f"Added {name} the {species}")
         return redirect('/')
     else:
-        return render_template('/add', form=form)
+        return render_template('add.html', form=form)
+
+
 
 
 
