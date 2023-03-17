@@ -1,6 +1,7 @@
-{% extends base.html %}
-
-<form id="add-pet-form" method="POST">
+{% extends 'base.html' %}
+{% block content %}
+<h1>IT GOES TO ADD!</h1>
+<form id="add" method="POST">
   {{ form.hidden_tag() }}
 
   {% for field in form
@@ -17,3 +18,4 @@
     <button type="submit">Submit Pet</button>
 
 </form>
+{% endblock %}
