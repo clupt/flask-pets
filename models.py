@@ -26,15 +26,15 @@ class Pet (db.Model):
         autoincrement=True)
 
     name = db.Column(
-        db.Text,
+        db.String(50),
         nullable=False)
 
     species = db.Column(
-        db.Text,
+        db.String(50),
         nullable=False)
 
     photo_url = db.Column(
-        db.Text,
+        db.String(200),
         nullable=False,
         default='')
 
@@ -43,7 +43,7 @@ class Pet (db.Model):
         nullable=False)
 
     notes = db.Column(
-        db.Text,
+        db.String(200),
         nullable=True)
 
     available = db.Column(
