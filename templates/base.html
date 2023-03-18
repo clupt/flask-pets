@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,22 +8,26 @@
   <title>{%block title %} {% endblock %}</title>
   <link rel="stylesheet" href="/static/styles.css">
 </head>
+
 <body>
   {% block content %}
-    <h1>PETS!</h1>
-    {% for pet in pets %}
-      <div>
-        <p><button><a href="/edit/{{pet.id}}">{{ pet.name }}</a></button><br></p>
-        <img src="{{ pet.photo_url }}"><br>
-        {% if pet.available %}
-        <p><b>The pet is available</b></p>
-        {% else %}
-        <p>The pet is not available</p>
-        {% endif %}
-      </div>
-    {% endfor %}
-    <button id="add-pet"><a href="/add">Add Pet</a></button>
+  <h1>PETS!</h1>
+  {% for pet in pets %}
+  <div>
+    <p><button><a href="/edit/{{pet.id}}">{{ pet.name }}</a></button><br></p>
+    <img src="{{ pet.photo_url }}"><br>
+    {% if pet.available == True %}
+    <p><b>Available!</b></p>
+
+    {% else %}
+
+    <p>The pet is not available</p>
+    {% endif %}
+  </div>
+  {% endfor %}
+  <button id="add-pet"><a href="/add">Add Pet</a></button>
   {% endblock %}
 
 </body>
+
 </html>

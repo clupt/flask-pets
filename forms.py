@@ -38,8 +38,4 @@ class EditPetForm(FlaskForm):
     notes = StringField("Tell us a little about your pet",
                         validators=[Optional()])
 
-    available = SelectField("Edit pet availability",
-                            choices=[(False, "False"), (True, "True")],
-                            validators=[InputRequired(
-                            message="Please select an option")]
-                            )
+    available = BooleanField("Is pet available")
