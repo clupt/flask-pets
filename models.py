@@ -33,6 +33,7 @@ class Pet (db.Model):
         db.String(50),
         nullable=False)
 
+    # TODO: "db.text" and nullable=False
     photo_url = db.Column(
         db.String(200),
         nullable=True,
@@ -42,6 +43,7 @@ class Pet (db.Model):
         db.Text,
         nullable=False)
 
+    # TODO: db.text is safer
     notes = db.Column(
         db.String(200),
         nullable=True)

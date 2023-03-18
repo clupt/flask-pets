@@ -9,9 +9,14 @@ class AddPetForm(FlaskForm):
     name = StringField("Pet Name",
                        validators=[InputRequired(message="Please include a Pet Name"), ])
 
-    species = StringField("Pet Species, in latin please",
-                          validators=[AnyOf(["cat", "Cat", "dog", "Dog", "porcupine", "Porcupine"], message="Please include a valid species")])
+    # TODO: should be selectField
+    species = StringField(
+        "Pet Species, in latin please",
+        validators=[
+        AnyOf(["cat", "Cat", "dog", "Dog", "porcupine", "Porcupine"],
+                    message="Please include a valid species")])
 
+    # TODO: mention it needs to be a URL in the message
     photo_url = StringField("Include a photo of the pet",
                             validators=[URL(require_tld=False,
                             message="Please include an image of the pet"),
@@ -19,11 +24,18 @@ class AddPetForm(FlaskForm):
 
     # photo_url = StringField("Include a photo of your pet")
 
-    age = SelectField("Pick a stage of life for your pet",
-                        choices=[("baby", "Baby"), ("young", "Young"),
-                               ("adult", "Adult"), ("senior", "Senior")],
-                        validators=[InputRequired(message="Please select an option")]
-                    )
+    age = SelectField(
+        "Pick a stage of life for your pet",
+        choices=[
+            ("baby", "Baby"),
+            ("young", "Young"),
+            ("adult", "Adult"),
+            ("senior", "Senior")
+        ],
+        validators=[InputRequired(message="Please select an option")]
+    )
+
+    # TODO: TextAreaField
     notes = StringField("Tell us a little about your pet",
                         validators=[Optional()])
 

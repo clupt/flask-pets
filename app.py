@@ -46,7 +46,8 @@ def show_or_add_pet_add_form():
         age = form.age.data
         notes = form.notes.data
 
-        new_pet = Pet(name=name, species=species, photo_url=photo_url,
+        new_pet = Pet(
+            name=name, species=species, photo_url=photo_url,
                       age=age, notes=notes)
 
         db.session.add(new_pet)
@@ -60,7 +61,7 @@ def show_or_add_pet_add_form():
 
 @app.route('/edit/<int:id>', methods=["GET", "POST"])
 def show_edit_page(id):
-
+    """Show edit page on GET, or Edit Pet info on POST"""
     pet = Pet.query.get_or_404(id)
 
     form = EditPetForm(obj=pet)
