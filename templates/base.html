@@ -12,12 +12,12 @@
     <h1>PETS!</h1>
     {% for pet in pets %}
       <div>
-        <p>{{ pet.name }}<br></p>
+        <p><button><a href="/edit/{{pet.id}}">{{ pet.name }}</a></button><br></p>
         <img src="{{ pet.photo_url }}"><br>
         {% if pet.available %}
         <p><b>The pet is available</b></p>
         {% else %}
-        <p>{{pet.available}}</p>
+        <p>The pet is not available</p>
         {% endif %}
       </div>
     {% endfor %}

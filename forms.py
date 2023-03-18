@@ -26,3 +26,20 @@ class AddPetForm(FlaskForm):
                     )
     notes = StringField("Tell us a little about your pet",
                         validators=[Optional()])
+
+class EditPetForm(FlaskForm):
+    """Form for editing pet info"""
+
+    photo_url = StringField("Include a photo of the pet",
+                            validators=[URL(require_tld=False,
+                            message="Please include an image of the pet"),
+                            Optional()])
+
+    notes = StringField("Tell us a little about your pet",
+                        validators=[Optional()])
+
+    available = SelectField("Edit pet availability",
+                            choices=[(False, "False"), (True, "True")],
+                            validators=[InputRequired(
+                            message="Please select an option")]
+                            )
