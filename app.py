@@ -70,7 +70,6 @@ def show_edit_page(id):
         pet.notes = form.notes.data
         pet.available = (form.available.data)
 
-        db.session.add(pet)
         db.session.commit()
 
         flash(f"Edited {pet.name} the {pet.species}")
